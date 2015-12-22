@@ -1,0 +1,14 @@
+[
+  "ui/demo/module.js",
+  "ui/demo/draggable/controller.js",
+
+
+  "ui/i/draggable/module.js",
+  "ui/i/draggable/container/directive.js",
+  "ui/i/draggable/element/directive.js",
+
+
+  "ui/app.js",
+  "ui/parts/index/controller.js",
+  "ui/parts/home/controller.js"
+]

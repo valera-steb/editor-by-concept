@@ -1,3 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 bower_components
+node_modules
+
+
+# utils
+ui/all.css
+ui/libs.js
