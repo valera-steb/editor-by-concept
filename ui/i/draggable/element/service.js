@@ -23,6 +23,12 @@ angular.module('draggable').factory('draggableElementFactory', ['$document', fun
 
         makeStubbing(callbacks, ['onStartMove', 'onMoving', 'onDrop']);
 
+        function clearState(){
+            state = 'inactive';
+
+            x = 0;
+            y = 0;
+        }
 
         function isMoving(event, params) {
             if (state == 'moving')
@@ -54,19 +60,25 @@ angular.module('draggable').factory('draggableElementFactory', ['$document', fun
         function mouseup() {
             $document.off('mousemove', mousemove);
             $document.off('mouseup', mouseup);
-            state = 'inactive';
+
+            clearState();
+
             callbacks.onDrop();
         }
 
 
         return {
-            onMouseDown: function () {
+            onMouseDown: function (event) {
                 event.preventDefault();
-                startX = event.pageX - x;
-                startY = event.pageY - y;
+
+                startX = event.pageX;
+                startY = event.pageY;
+
+                clearState();
+
                 $document.on('mousemove', mousemove);
                 $document.on('mouseup', mouseup);
-                state = 'inactive';
+
             }
         };
     };
