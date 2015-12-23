@@ -6,6 +6,7 @@
   "ui/i/draggable/module.js",
   "ui/i/draggable/container/directive.js",
   "ui/i/draggable/element/directive.js",
+  "ui/i/draggable/element/service.js",
 
 
   "ui/app.js",
