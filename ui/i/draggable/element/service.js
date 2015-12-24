@@ -84,5 +84,9 @@ angular.module('draggable').factory('draggableElementFactory', ['$document', fun
     };
 
 
+    draggableElementFactory.MovableElementController = function(){
+
+    };
+
     return draggableElementFactory;
 }]);
