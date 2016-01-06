@@ -1,12 +1,18 @@
 [
   "ui/demo/module.js",
   "ui/demo/draggable/controller.js",
+  "ui/demo/npm_concept/controller.js",
+  "ui/demo/npm_concept/factory.js",
 
 
   "ui/i/draggable/module.js",
   "ui/i/draggable/container/directive.js",
   "ui/i/draggable/element/directive.js",
   "ui/i/draggable/element/service.js",
+
+
+  "ui/i/module.js",
+  "ui/i/selectable/directive.js",
 
 
   "ui/app.js",

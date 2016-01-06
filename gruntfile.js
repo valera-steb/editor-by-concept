@@ -17,6 +17,7 @@ module.exports = function(grunt) {
                     // angular parts
                     "bower_components/angular/angular.min.js",
                     "bower_components/angular-route/angular-route.min.js",
+                    "bower_components/angular-sanitize/angular-sanitize.js"
                 ],
                 dest: 'ui/libs.js'
             },

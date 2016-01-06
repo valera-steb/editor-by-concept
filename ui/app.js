@@ -2,7 +2,8 @@
  * Created on 22.12.2015.
  */
 var app = angular.module('app', [
-    'ngRoute', 'draggable',
+    'ngRoute',
+    'draggable', 'infrastructure',
     'eDemo'
 ]);
 

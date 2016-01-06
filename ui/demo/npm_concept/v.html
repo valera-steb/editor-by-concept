@@ -1,0 +1,64 @@
+<div class="demo npm_concept">
+    <div ng-init="pasetBelow=true">
+        <button>move up</button>
+        <button>move down</button>
+        <button>copy</button>
+        <button>cut</button>
+        <button ng-click="pasetBelow=!pasetBelow">
+            paste
+            <span ng-show="pasetBelow">above</span>
+            <span ng-hide="pasetBelow">below</span>
+        </button>
+    </div>
+
+
+    <style>
+        .demo.npm_concept .layout.l1 {
+            padding-left: 55px;
+        }
+
+        .demo.npm_concept .layout.l1 .graph.l1 {
+            left: -55px;
+        }
+
+        .demo.npm_concept .layout.l2 {
+            padding-left: 20px;
+        }
+
+        .demo.npm_concept .layout.l2 .graph.l2 {
+            left: -20px;
+        }
+    </style>
+
+    <div class="layout l1">
+        <div class="item" ng-repeat="item in content"
+             ng-init="editing={key:false, text:false}">
+
+            <div class="graph l1"
+                 ng-mouseleave="editing.key=false">
+
+                <div class="v-helper"></div>
+
+
+                <div class="key"
+                     ng-class="{'editing': editing.key}">
+
+                    <input ng-model="item.key"/>
+
+                    <pre ng-mouseenter="editing.key=true">{{item.key}}</pre>
+                </div>
+            </div>
+
+
+            <div class="text"
+                 ng-class="{'editing': editing.text}"
+                 ng-mouseleave="editing.text=false">
+
+                <textarea ng-model="item.text"/>
+
+                <div ng-bind-html="item.text" ng-click="editing.text=true"/>
+            </div>
+        </div>
+    </div>
+
+</div>
