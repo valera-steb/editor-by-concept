@@ -13,6 +13,7 @@
 
   "ui/i/module.js",
   "ui/i/selectable/directive.js",
+  "ui/i/selectable/service.js",
 
 
   "ui/app.js",

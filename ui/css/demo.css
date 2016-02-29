@@ -1,0 +1,60 @@
+.demo .selectable-wrapper {
+  border: 1px solid transparent;
+}
+.demo .selectable-wrapper.active {
+  border-color: green;
+}
+.demo.npm_concept .layout {
+  position: relative;
+  border: 1px solid blue;
+  padding-bottom: 5px;
+}
+.demo.npm_concept .item {
+  position: relative;
+  border-bottom: 1px solid green;
+  margin-top: 5px;
+}
+.demo.npm_concept .item .graph {
+  position: absolute;
+  height: 100%;
+}
+.demo.npm_concept .item .graph .v-helper {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  margin-left: -2px;
+  margin-right: -2px;
+}
+.demo.npm_concept .item .graph .key {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+.demo.npm_concept .item .graph .key input {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  font-family: 'Envy Code R';
+  white-space: pre;
+}
+.demo.npm_concept .item .graph .key.editing input {
+  visibility: visible;
+}
+.demo.npm_concept .item .graph .key pre {
+  font-family: 'Envy Code R';
+  margin: 0;
+}
+.demo.npm_concept .item .text textarea {
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+}
+.demo.npm_concept .item .text.editing textarea {
+  visibility: visible;
+}

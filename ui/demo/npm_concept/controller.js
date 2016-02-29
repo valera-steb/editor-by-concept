@@ -27,6 +27,47 @@ angular.module('eDemo').controller('npmConceptCtrl', ['$scope', 'npmConceptFacto
     };
 
 
+    var m = {
+        selectedItem: {},
+
+        move: {
+            setActivity: function (a) {
+                $scope.move.active = a;
+            },
+
+            up: function () {
+                var id = m.utils.findItemId(m.selectedItem, $scope.content);
+
+                if (id < 1)
+                    return;
+
+                $scope.content.splice(id - 1, 2, $scope.content[id], $scope.content[id - 1]);
+            },
+
+            down: function () {
+                var id = m.utils.findItemId(m.selectedItem, $scope.content);
+                console.log(id);
+
+                if (id >= $scope.content.length - 1)
+                    return;
+
+                $scope.content.splice(id, 2, $scope.content[id + 1], $scope.content[id]);
+
+            }
+        },
+
+        utils: {
+            findItemId: function (item, array) {
+                for (var i in array) {
+                    if (array[i].$$hashKey === item.$$hashKey)
+                        return Number(i);
+                }
+                return -1;
+            }
+        }
+    };
+
+
     npmConceptFactory.clipboardController($scope);
 
     $scope.content = datas.items;
@@ -45,6 +86,25 @@ angular.module('eDemo').controller('npmConceptCtrl', ['$scope', 'npmConceptFacto
                     angular.element('#f').trigger('paste');
                 }, 100);
             }, 100);
+        },
+
+        select: function (v) {
+            if (m.selectedItem.$$hashKey === v.$$hashKey)
+                return false;
+
+            console.log(v);
+            m.selectedItem = v;
+            m.move.setActivity(true);
+            return true;
+        },
+
+        move: {
+            up: m.move.up,
+            down: m.move.down
         }
-    }
+    };
+
+    $scope.move = {
+        active: false
+    };
 }]);
