@@ -42,12 +42,21 @@ module.exports = function(grunt) {
                 files: "ui/css/custom.css",
                 tasks: 'concat:styles'
             }
+        },
+
+        less: {
+            release: {
+                files: {
+                    "ui/css/demo.css": 'ui/css/demo.less'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-less');
 
     grunt.registerTask('default', ['watch']);
-    grunt.registerTask('release', ['concat']);
+    grunt.registerTask('release', ['less:release', 'concat']);
 };

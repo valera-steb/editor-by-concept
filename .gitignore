@@ -7,3 +7,4 @@ node_modules
 # utils
 ui/all.css
 ui/libs.js
+ui/css/demo.css
