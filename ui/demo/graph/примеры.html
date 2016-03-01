@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        .samples div {
+            display: inline-block;
+            vertical-align: top;
+            margin: 5px;
+            padding: 2px;
+            border: 1px solid gainsboro;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Примитивы</h2>
+
+<div class="samples">
+    <div>
+    <pre>
+        1
+        ├
+        2
+    </pre>
+        <pre>
+
+
+
+[
+    {
+        name: 1,
+        outs: [2]
+    },
+    {name: 2}
+]
+        </pre>
+    </div>
+
+    <div>
+    <pre>
+        1
+        ├──┐
+        ├  │
+        │  ├
+        2 ─┘
+    </pre>
+        <pre>
+
+[
+    {
+        name: 1,
+        outs: [2, 2]
+    },
+    {name: 2}
+]
+        </pre>
+    </div>
+
+    <div>
+    <pre>
+        1
+        ├──┬──┐
+        ├  │  │
+        │  ├  │
+        │  │  ├
+        2 ─┴──┘
+    </pre>
+        <pre>[
+    {
+        name: 1,
+        outs: [2, 2, 2]
+    },
+    {name: 2}
+]
+        </pre>
+    </div>
+    <div>
+    <pre>
+        1
+        ├──┐
+        ├  │
+        │  ├
+        2  │
+        ├  │
+        3 ─┘
+    </pre>
+        <pre>[
+    {
+        name: 1,
+        outs: [2, 3]
+    },
+    {
+        name: 2,
+        outs: [3]
+    },
+    {name: 3}
+]
+        </pre>
+    </div>
+    <div>
+    <pre>
+        1
+        ├──┐
+        ├  │
+        │  ├
+        │  2
+        │  ├
+        3 ─┘
+    </pre>
+        <pre>[
+    {
+        name: 1,
+        outs: [3, 2]
+    },
+    {
+        name: 2,
+        outs: [3]
+    },
+    {name: 3}
+]
+        </pre>
+    </div>
+    <div>
+    <pre>
+        1
+        ├──┬──┐
+        ├  │  │
+        │  ├  │
+        │  │  ├
+        2  │  │
+        ├  │  │
+        │  3  │
+        │  ├  │
+        │  │  4
+        │  │  ├
+        5 ─┴──┘
+    </pre>
+        <pre>[
+    {
+        name: 1,
+        outs: [2, 3, 4]
+    },
+    {
+        name: 2,
+        outs: [5]
+    },
+    {
+        name: 3,
+        outs: [5]
+    },
+    {
+        name: 4,
+        outs: [5]
+    },
+    {name: 5}
+]
+        </pre>
+    </div>
+</div>
+
+<h2>Пересечения</h2>
+
+<div class="samples">
+</div>
+
+<h2>Примеры</h2>
+
+<div class="samples">
+    <pre>
+
+        1
+        ├──┐
+        ├  │
+        │  ├
+        2  │
+        ├  │
+        │  3
+        │  ├──┬──┐
+        │  ├  │  │
+        │  │  ├  │
+        │  │  │  ├
+        │  4  │  │
+        │  ├  │  │
+        │  │  5  │
+        │  │  ├  │
+        │  │  │  6
+        │  │  │  ├
+        │  │  │  │
+        7 ─│──┘  │
+        ├  │     │
+        8 ─┴─────┘
+    </pre>
+    <pre>
+    сложный без оптимизации
+        1
+        ├──────────────┐
+        ├              │
+        │              ├
+        2              │
+        ├──┐           │
+        ├  │           │
+        │  ├           │
+        │  │           3
+        │  │           ├
+        │  4           │
+        │  ├─────┬──┐  │
+        │  ├     │  │  │
+        │  │     ├  │  │
+        │  │     │  ├  │
+        │  5     │  │  │
+        │  ├──┐  │  │  │
+        │  ├  │  │  │  │
+        │  │  6  │  │  │
+        │  │  ├  │  │  │
+        │  │  │  7  │  │
+        │  │  │  ├  │  │
+        │  │  │  │  8  │
+        │  │  │  │  ├  │
+        9 ─│──│──┘  │  │
+        ├  │  │     │  │
+        10─┴──│─────┘  │
+        ├     │        │
+        │     │        11
+        │     │        ├
+        12────┴────────┘
+    </pre>
+    <div>
+        <pre>
+    сложный без оптимизации
+        1
+        ├──┐
+        ├  │
+        │  ├
+        2  │
+        ├  │
+        │  3
+        │  ├
+        4──┘
+        ├
+        5
+        ├──┐
+        ├  │
+        │  ├
+        │  6
+        │  ├
+        7──┘
+        </pre>
+        <pre>
+[
+    { name: 1, outs: [2, 3]},
+    { name: 2, outs: [4]},
+    { name: 3, outs: [4]},
+    { name: 4, outs: [5, 6]},
+    { name: 5, outs: [7]},
+    { name: 6: outs: [7]},
+    { name: 7}
+]
+        </pre>
+    </div>
+</div>
+
+
+</body>
+</html>
