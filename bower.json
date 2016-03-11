@@ -21,6 +21,8 @@
     "angular-route": "~1.4.8",
     "jquery": "~1.*",
     "jquery.loadscript": "https://github.com/marcbuils/jquery.loadscript.git#~0.1.0",
-    "angular-sanitize": "~1.4.8"
+    "angular-sanitize": "~1.4.8",
+    "requirejs": "~2.1.22",
+    "jasmine-core": "jasmine#~2.4.1"
   }
 }
