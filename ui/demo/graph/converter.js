@@ -7,6 +7,20 @@ define([
 
     var selectPredAction = new PredActionSelector();
 
+    var ou = {
+        replaceLinksToCuts: function (line, positions, name) {
+            if (!positions || !positions.length)
+                return;
+
+            positions.forEach(function(i){
+                line.splice(i, 1, {
+                    type: 'cut',
+                    to: name
+                });
+            });
+        }
+    };
+
     function execute(d) {
         var table = [[]];
 
@@ -22,6 +36,7 @@ define([
 
                 case(hasSuchLinkItem()):
                     lastLine.splice(y.position, 1, level.name);
+                    ou.replaceLinksToCuts(lastLine, y.params, level.name);
                     table.push(lastLine);
                     break;
 

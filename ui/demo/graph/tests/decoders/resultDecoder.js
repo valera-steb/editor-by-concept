@@ -1,5 +1,5 @@
 /**
- * Created by steb on 11.03.2016.
+ * Created by steb on 12.03.2016.
  */
 define(['c/dynamicBrunch'], function (DynamicBrunch) {
 
