@@ -9,15 +9,20 @@ define([
 
     describe('converter', function () {
 
-        it(datas.t01.s+ ' -> '+ datas.t01.r, function () {
-            var table = convert(
-                graphDecoder(datas.t01.s)
-            );
+        ['t01', 't03'].forEach(function(i){
 
-            expect(table).toEqual(
-                resultDecoder(datas.t01.r)
+            it(datas[i].s+ ' -> '+ datas[i].r, function () {
+                var table = convert(
+                    graphDecoder(datas[i].s)
                 );
+
+                expect(table).toEqual(
+                    resultDecoder(datas[i].r)
+                );
+            });
+
         });
+
 
     });
 });
